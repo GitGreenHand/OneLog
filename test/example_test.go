@@ -6,6 +6,7 @@ import (
 )
 
 func TestOneLog(t *testing.T) {
+	// 可以默认
 	logger1 := oneLog.NewDefaultConsoleLog()
 	logger1.OutLogger.Info().Msg("default logs")
 
@@ -24,14 +25,14 @@ func TestOneLog(t *testing.T) {
 		WithLevel("[logger3] %s [record]").
 		WithMessage("{ %s }").
 		WithColor(false).
-		WithFileWriter("/test/test.log", true).
+		WithFileWriter("/test.log", true).
 		Build()
 
 	logger3.OutLogger.Info().Msg("logger3.......")
 
 	logger4 := new(oneLog.OneLogger).
 		WithTimeFormat("2006-01-02 15:04:05").
-		WithLevel("[logger3] %s [record]").
+		WithLevel("[logger4] %s [record]").
 		WithMessage("{ %s }").
 		WithColor(false).
 		WithFileWriter("/test.log", true)

@@ -3,13 +3,12 @@ package oneLog
 import (
 	"fmt"
 	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"io"
 	"os"
 	"strings"
 )
-
-
 
 type OneLogger struct {
 	output     zerolog.ConsoleWriter
@@ -24,7 +23,7 @@ type OneLogger struct {
 
 func (m *OneLogger) Build() *OneLogger {
 	m.output.Out = m.writer
-	m.OutLogger.Output(m.output)
+	m.OutLogger = log.Output(m.output)
 	return m
 }
 
